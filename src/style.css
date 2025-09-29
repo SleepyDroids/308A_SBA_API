@@ -1,0 +1,25 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column wrap;
+}
+
+#cards-panel {
+  background-color: #d3d3d3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row wrap;
+  width: 100vh;
+}
+
+.card {
+  margin: 2px;
+  padding: 2px;
+  width: 200px;
+  height: auto;
+  border: 1px solid #000000;
+}
