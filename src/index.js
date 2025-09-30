@@ -1,6 +1,7 @@
-//308A SBA
+// 308A SBA
 
 // Other Variables
+let deck; // initializing 
 let hasSuit = false;
 let isMajor = false;
 let isMinor = false;
@@ -9,18 +10,18 @@ let isMinor = false;
 // grabbing the template I made and selecting it by attribute
 const cardSkeleton = document.querySelector("[card-skeleton]");
 // console.log(cardSkeleton); // shows the doc frag
-const bodyEl = document.querySelector("body");
+const body = document.querySelector("body");
 const cardsPanel = document.querySelector("#cards-panel");
 // const searchBtn = document.createElement("button");
 // searchBtn.id = "search-btn"
 // searchBtn.textContent = "Search Tarot";
-// bodyEl.prepend(searchBtn);
+// body.prepend(searchBtn);
 const searchBar = document.createElement("input");
 searchBar.id = "card-search";
 searchBar.name = "cardSearch";
 searchBar.type = "text";
 searchBar.placeholder = "Search cards....";
-bodyEl.prepend(searchBar);
+body.prepend(searchBar);
 console.log(searchBar);
 
 // Data Retrieval
@@ -43,16 +44,17 @@ async function initialPanel() {
 
     // Convert the promise received into json data
     const data = await response.json();
+    // all data SHOULD be loaded by here
     // deck targets the array inside my data so I can loop through it more easily
-    const deck = data.cards;
+    deck = data.cards;
     // console.log(data);
-
+    // linkImages();
     // for each card, do the following (78 cards total - indexed from 0 - 77)
-    deck.forEach((card, index) => {
+    deck.forEach((card,_index) => {
       // setting up template/document fragment cloning for cards
       // grab everything inside the template (content) and clone it
       // which returns a document fragment
-      const cardFrag = cardSkeleton.content.cloneNode(true).children[0];
+      const cardFrag = cardSkeleton.content.firstElementChild.cloneNode(true);
       const cardName = cardFrag.querySelector("[card-title]");
       const type = cardFrag.querySelector("[card-type]");
       const suit = cardFrag.querySelector("[card-suit]");
@@ -114,7 +116,7 @@ const optionsData = [
   { value: "pentacles", text: "Pentacles (Suit)", id: "pentacles" },
 ]; // end of optionsData array of objects
 optionsData.forEach((data) => {
-  console.log(data);
+  // console.log(data);
   const optionCreate = document.createElement("option");
   optionCreate.value = data.value;
   optionCreate.textContent = data.text;
@@ -122,28 +124,31 @@ optionsData.forEach((data) => {
   selectFilter.appendChild(optionCreate);
 });
 
-console.log(selectFilter)
-selectFilter.addEventListener("change", cardFilter)
+// console.log(selectFilter);
+selectFilter.addEventListener("change", cardFilter);
 
 // can use template to make the cards again for each filter type
 // have the filter link to the card filters from the API docs
 // can make fetch calls per filter though I don't know if that's optimal
 // could try use Promise.all() for each filter type???
 // or if it would be easier just to use the data I've already pulled in my first request
-// but I need to figure out how to prioritze the DOM loading in first 
-// so I have data to iterate over for the filter 
+// but I need to figure out how to prioritze the DOM loading in first
+// so I have data to iterate over for the filter
 
 function cardFilter() {
- // WIP
+  // WIP
 }
 
 // separate function here to link images I've downloaded to each card's src accordingly
+
+function linkImages() {
 // can link cards by their name to the appropriate image
 // alternatively each card has a unique value in the API so if I name the images that way
 // that could work too
 // trying to figure out how to do this without having 78 if statements to account for each card
 // according to stackoverflow I need to use .split() method
-
-function linkImages() {
+// to get to an image's file name and then maybe I can link it that way
 
 }
+
+
