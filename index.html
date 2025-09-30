@@ -13,7 +13,7 @@
     General Card Structure 
     Card Name
     Type
-    Suit
+    Suit - need to adjust if there is no suit available (if statement?)
     Meaning Upright Position
     Meaning Reversed Position 
     Card Description
@@ -22,12 +22,12 @@
     <template card-skeleton>
       <div class="card">
         <h3 card-title></h3>
-        <ul class="card-data">
+        <ul>
           <li card-type></li>
-          <li card-suit></li>
-          <li card-upright></li>
-          <li card-reversed></li>
-          <li card-desc></li>
+          <li card-suit><b>Suit: </b></li>
+          <li card-upright><b>Upright Meanings:</b> </li>
+          <li card-reversed><b>Reversed Meanings: </b></li>
+          <li card-desc><b>Description: </b></li>
         </ul>
       </div>
     </template>
