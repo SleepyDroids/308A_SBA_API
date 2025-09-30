@@ -65,11 +65,8 @@ async function initialPanel() {
       reverse.textContent += card.meaning_rev;
       desc.textContent += card.desc;
       // major arcana cards don't have a suit so applying logic to account for that
-      card.suit === undefined
-        ? (suit.textContent += "Not applicable")
-        : (suit.textContent += card.suit);
+      card.suit === undefined ? suit.remove() : (suit.textContent += card.suit);
       cardsPanel.append(cardFrag);
-
       // const newDiv = document.createElement("div");
       // // setting up a universal class for each card div
       // newDiv.className = "card";
@@ -90,7 +87,7 @@ initialPanel(); // initializes the cards so that there's something on the page w
 
 console.log(cardsPanel);
 const allCards = document.getElementsByClassName("card");
-console.log(allCards); // returns HTML collection
+console.log(allCards); // returns HTML collection with null properties
 
 // live searches based on user input
 searchBar.addEventListener("input", liveSearch);
@@ -108,11 +105,34 @@ function liveSearch() {
 }
 
 // DOM - Creating the filter
-const label = document.createElement("label");
-label.for = "card-filter";
-const select = document.createElement("select")
-select.id = "card-filter"
-select.name = "filter-cards"
+// const label = document.createElement("label");
+// label.for = "card-filter";
+// searchBar.after(label)
+const select = document.createElement("select");
+select.id = "card-filter";
+select.name = "filter-cards";
+const label = document.querySelector("label");
+label.after(select);
+const selectFilter = document.querySelector("#card-filter");
+const optionsData = [
+  { value: "major", text: "Major Arcana" },
+  { value: "minor", text: "Minor Arcana" },
+  { value: "wands", text: "Wands (Suit)" },
+  { value: "cups", text: "Cups (Suit)" },
+  { value: "swords", text: "Swords (Suit)" },
+  { value: "pentacles", text: "Pentacles (Suit)" },
+]; // end of optionsData array of objects
+optionsData.forEach((data) => {
+  console.log(data);
+  const optionCreate = document.createElement("option");
+  optionCreate.value = data.value;
+  optionCreate.textContent = data.text;
+  selectFilter.appendChild(optionCreate);
+});
 
-const option = document.createElement("option")
-option.value = "Major"
+console.log(selectFilter)
+selectFilter.addEventListener("change", cardFilter)
+
+function cardFilter() {
+  
+}
