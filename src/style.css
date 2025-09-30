@@ -23,3 +23,7 @@ body {
   height: auto;
   border: 1px solid #000000;
 }
+
+.card img {
+  max-width: 200px;
+}
