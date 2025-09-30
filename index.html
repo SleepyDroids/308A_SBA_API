@@ -1,16 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./src/style.css">
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/style.css" />
     <title>308A SBA - APIs and Data Manipulation</title>
-</head>
-<body>
-
+  </head>
+  <body>
     <div id="cards-panel"></div>
-    
-        <script src="./src/index.js" type="module"></script>
-</body>
+
+    <!-- 
+    General Card Structure 
+    Card Name
+    Type
+    Suit
+    Meaning Upright Position
+    Meaning Reversed Position 
+    Card Description
+    -->
+
+    <template card-skeleton>
+      <div class="card">
+        <h3 card-title></h3>
+        <ul class="card-data">
+          <li card-type></li>
+          <li card-suit></li>
+          <li card-upright></li>
+          <li card-reversed></li>
+          <li card-desc></li>
+        </ul>
+      </div>
+    </template>
+
+    <script src="./src/index.js" type="module"></script>
+  </body>
 </html>

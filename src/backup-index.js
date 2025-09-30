@@ -6,9 +6,6 @@ let isMajor = false;
 let isMinor = false;
 
 // DOM
-// grabbing the template I made and selecting it by attribute
-const cardSkeleton = document.querySelector("[card-skeleton]")
-console.log(cardSkeleton) // shows the doc frag
 const bodyEl = document.querySelector("body");
 const cardsPanel = document.querySelector("#cards-panel");
 // const searchBtn = document.createElement("button");
@@ -56,6 +53,13 @@ async function initialPanel() {
       newDiv.role = "listitem";
       // testing data retrieval is successful
       newDiv.textContent = card.name;
+    //   newDiv.innerHTML = `
+    //   <u>Name of Card:</u> ${card.name} <br />
+    //   <u>Type:</u> ${card.type} <br />
+    //   <u>Meanings:</u> ${card.meaning_up} <br />
+    //   <u>Reversed Meanings:</u> ${card.meaning_rev} <br />
+    //   <u>Description:</u> ${card.desc}
+    //   `;
       cardsPanel.append(newDiv);
     }); // end of forEach loop
   } catch (error) {
@@ -83,6 +87,5 @@ function liveSearch() {
         card.style.display = text.includes(query) ? "block" : "none"
     }
 }
-
 
 
