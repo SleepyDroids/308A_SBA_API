@@ -15,15 +15,31 @@ function liveSearch() {
 }
 
 // can use template to make the cards again for each filter type
-// have the filter link to the card filters from the API docs
-// can make fetch calls per filter though I don't know if that's optimal
-// could try use Promise.all() for each filter type???
 // or if it would be easier just to use the data I've already pulled in my first request
 // but I need to figure out how to prioritze the DOM loading in first
 // so I have data to iterate over for the filter
 
 function cardFilter() {
-  // WIP
+  const allCards = document.getElementsByClassName("card")
+  if (allCards.length === 0) return; // guard in case the API hasn't retrieved the info
+
+  const userPick = document.getElementById("card-filter").value.toLowerCase();
+
+for (let card of allCards) {
+  // grabbing the type info from my doc frag again which should be rendered at this point
+  const typeElement = card.querySelector("[card-type]")
+  // if the type of the rendered, grab the text or give an empty string if it didn't load in
+  const typeActualText = typeElement ? typeElement.textContent.toLowerCase() : "";
+
+  if (userPick === "major") {
+    card.style.display = typeActualText.includes("major") ? "block" : "none";
+  } else if (userPick === "minor") {
+    card.style.display = typeActualText.includes("minor") ? "block" : "none";
+  } else {
+    card.style.display = "";
+  }
+}
+  
 }
 
 // separate function here to link images I've downloaded to each card's src accordingly
