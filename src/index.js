@@ -1,7 +1,9 @@
+import { liveSearch, cardFilter, linkImages } from "./functions.js";
+
 // 308A SBA
 
 // Other Variables
-let deck; // initializing 
+let deck; // initializing
 let hasSuit = false;
 let isMajor = false;
 let isMinor = false;
@@ -22,7 +24,6 @@ searchBar.name = "cardSearch";
 searchBar.type = "text";
 searchBar.placeholder = "Search cards....";
 body.prepend(searchBar);
-console.log(searchBar);
 
 // Data Retrieval
 // baseURL provided by the docs
@@ -50,7 +51,7 @@ async function initialPanel() {
     // console.log(data);
     // linkImages();
     // for each card, do the following (78 cards total - indexed from 0 - 77)
-    deck.forEach((card,_index) => {
+    deck.forEach((card, _index) => {
       // setting up template/document fragment cloning for cards
       // grab everything inside the template (content) and clone it
       // which returns a document fragment
@@ -78,24 +79,8 @@ async function initialPanel() {
 
 initialPanel(); // initializes the cards so that there's something on the page when the user loads in
 
-console.log(cardsPanel);
-const allCards = document.getElementsByClassName("card");
-console.log(allCards); // returns HTML collection with null properties
-
 // live searches based on user input
 searchBar.addEventListener("input", liveSearch);
-
-function liveSearch() {
-  // the user's input
-  const query = this.value.toLowerCase();
-  // for each card inside of the HTML collection (deck)
-  for (let card of allCards) {
-    // the text content of each card
-    const text = card.textContent.toLowerCase();
-    // if it includes the user search, show it : if not, don't
-    card.style.display = text.includes(query) ? "block" : "none";
-  }
-}
 
 // DOM - Creating the filter
 // const label = document.createElement("label");
@@ -125,43 +110,16 @@ optionsData.forEach((data) => {
   selectFilter.appendChild(optionCreate);
 });
 
-// console.log(selectFilter);
 selectFilter.addEventListener("change", cardFilter);
 
-// can use template to make the cards again for each filter type
-// have the filter link to the card filters from the API docs
-// can make fetch calls per filter though I don't know if that's optimal
-// could try use Promise.all() for each filter type???
-// or if it would be easier just to use the data I've already pulled in my first request
-// but I need to figure out how to prioritze the DOM loading in first
-// so I have data to iterate over for the filter
-
-function cardFilter() {
-  // WIP
-}
-
-// separate function here to link images I've downloaded to each card's src accordingly
-
-function linkImages() {
-// can link cards by their name to the appropriate image
-// alternatively each card has a unique value in the API so if I name the images that way
-// that could work too
-// trying to figure out how to do this without having 78 if statements to account for each card
-// according to stackoverflow I need to use .split() method
-// to get to an image's file name and then maybe I can link it that way
-
-}
-
 // DOM - adding reset button
-const button = document.createElement("button")
-button.id = "resetDeck"
-button.textContent = "Reset Deck"
-button.ariaLabel = "Reset all cards to default"
+const button = document.createElement("button");
+button.id = "resetDeck";
+button.textContent = "Reset Deck";
+button.ariaLabel = "Reset all cards to default";
 selectFilter.after(button);
-const resetBtn = document.querySelector("#resetDeck")
+const resetBtn = document.querySelector("#resetDeck");
 
 resetBtn.addEventListener("click", () => {
   window.location.reload();
 });
-
-

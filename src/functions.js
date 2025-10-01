@@ -1,0 +1,38 @@
+export { liveSearch, cardFilter, linkImages };
+
+// Live search functionality for the main deck page
+function liveSearch() {
+  const allCards = document.getElementsByClassName("card");
+  // the user's input
+  const query = this.value.toLowerCase();
+  // for each card inside of the HTML collection (deck)
+  for (let card of allCards) {
+    // the text content of each card
+    const text = card.textContent.toLowerCase();
+    // if it includes the user search, show it : if not, don't
+    card.style.display = text.includes(query) ? "block" : "none";
+  }
+}
+
+// can use template to make the cards again for each filter type
+// have the filter link to the card filters from the API docs
+// can make fetch calls per filter though I don't know if that's optimal
+// could try use Promise.all() for each filter type???
+// or if it would be easier just to use the data I've already pulled in my first request
+// but I need to figure out how to prioritze the DOM loading in first
+// so I have data to iterate over for the filter
+
+function cardFilter() {
+  // WIP
+}
+
+// separate function here to link images I've downloaded to each card's src accordingly
+
+function linkImages() {
+  // can link cards by their name to the appropriate image
+  // alternatively each card has a unique value in the API so if I name the images that way
+  // that could work too
+  // trying to figure out how to do this without having 78 if statements to account for each card
+  // according to stackoverflow I need to use .split() method
+  // to get to an image's file name and then maybe I can link it that way
+}
