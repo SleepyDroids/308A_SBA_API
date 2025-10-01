@@ -20,27 +20,29 @@ function liveSearch() {
 // so I have data to iterate over for the filter
 
 function cardFilter() {
-  const allCards = document.getElementsByClassName("card")
+  const allCards = document.getElementsByClassName("card");
   if (allCards.length === 0) return; // guard in case the API hasn't retrieved the info
 
   const userPick = document.getElementById("card-filter").value.toLowerCase();
 
-for (let card of allCards) {
-  // grabbing the type info from my doc frag again which should be rendered at this point
-  const typeElement = card.querySelector("[card-type]")
-  // if the type of the rendered, grab the text or give an empty string if it didn't load in
-  const typeActualText = typeElement ? typeElement.textContent.toLowerCase() : "";
+  for (let card of allCards) {
+    // grabbing the type info from my doc frag again which should be rendered at this point
+    const typeElement = card.querySelector("[card-type]");
+    // if the type of the rendered, grab the text or give an empty string if it didn't load in
+    const typeActualText = typeElement
+      ? typeElement.textContent.toLowerCase()
+      : "";
 
-  if (userPick === "major") {
-    card.style.display = typeActualText.includes("major") ? "block" : "none";
-  } else if (userPick === "minor") {
-    card.style.display = typeActualText.includes("minor") ? "block" : "none";
-  } else {
-    card.style.display = "";
+    // similar logic to the live search
+    if (userPick === "major") {
+      card.style.display = typeActualText.includes("major") ? "block" : "none";
+    } else if (userPick === "minor") {
+      card.style.display = typeActualText.includes("minor") ? "block" : "none";
+    } else {
+      card.style.display = "";
+    }
   }
-}
-  
-}
+} // end of cardFilter() function
 
 // separate function here to link images I've downloaded to each card's src accordingly
 

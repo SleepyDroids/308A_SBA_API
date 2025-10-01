@@ -1,4 +1,16 @@
 import { liveSearch, cardFilter, linkImages } from "./functions.js";
+import {
+  cardSkeleton,
+  body,
+  cardsPanel,
+  searchBar,
+  select,
+  label,
+  selectFilter,
+  optionsData,
+  button,
+  resetBtn,
+} from "./dom.js";
 
 // 308A SBA
 
@@ -9,16 +21,6 @@ let isMajor = false;
 let isMinor = false;
 
 // DOM
-// grabbing the template I made and selecting it by attribute
-const cardSkeleton = document.querySelector("[card-skeleton]");
-// console.log(cardSkeleton); // shows the doc frag
-const body = document.querySelector("body");
-const cardsPanel = document.querySelector("#cards-panel");
-// const searchBtn = document.createElement("button");
-// searchBtn.id = "search-btn"
-// searchBtn.textContent = "Search Tarot";
-// body.prepend(searchBtn);
-const searchBar = document.createElement("input");
 searchBar.id = "card-search";
 searchBar.name = "cardSearch";
 searchBar.type = "text";
@@ -83,24 +85,6 @@ initialPanel(); // initializes the cards so that there's something on the page w
 searchBar.addEventListener("input", liveSearch);
 
 // DOM - Creating the filter
-// const label = document.createElement("label");
-// label.for = "card-filter";
-// searchBar.after(label)
-const select = document.createElement("select");
-select.id = "card-filter";
-select.name = "filter-cards";
-const label = document.querySelector("label");
-label.after(select);
-const selectFilter = document.querySelector("#card-filter");
-const optionsData = [
-  { value: "#", text: "Filter cards by type" },
-  { value: "major", text: "Major Arcana", id: "major" },
-  { value: "minor", text: "Minor Arcana", id: "minor" },
-  { value: "wands", text: "Wands (Suit)", id: "wands" },
-  { value: "cups", text: "Cups (Suit)", id: "cups" },
-  { value: "swords", text: "Swords (Suit)", id: "swords" },
-  { value: "pentacles", text: "Pentacles (Suit)", id: "pentacles" },
-]; // end of optionsData array of objects
 optionsData.forEach((data) => {
   // console.log(data);
   const optionCreate = document.createElement("option");
@@ -111,14 +95,6 @@ optionsData.forEach((data) => {
 });
 
 selectFilter.addEventListener("change", cardFilter);
-
-// DOM - adding reset button
-const button = document.createElement("button");
-button.id = "resetDeck";
-button.textContent = "Reset Deck";
-button.ariaLabel = "Reset all cards to default";
-selectFilter.after(button);
-const resetBtn = document.querySelector("#resetDeck");
 
 resetBtn.addEventListener("click", () => {
   window.location.reload();

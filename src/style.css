@@ -1,8 +1,6 @@
 body {
   margin: 0;
   padding: 0;
-  display: grid;
-  place-content: center;
 }
 
 #cards-panel {
@@ -18,11 +16,13 @@ body {
   margin: 2px;
   padding: 2px;
   border: 1px solid #000000;
+  text-align: center;
 }
 
 .card > ul {
   list-style: none;
   margin: 0;
+  padding: 0;
 }
 
 .card img {
