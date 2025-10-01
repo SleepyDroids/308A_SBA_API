@@ -55,6 +55,7 @@ async function initialPanel() {
       // grab everything inside the template (content) and clone it
       // which returns a document fragment
       const cardFrag = cardSkeleton.content.firstElementChild.cloneNode(true);
+      const cardImg = cardFrag.querySelector("[card-img]");
       const cardName = cardFrag.querySelector("[card-title]");
       const type = cardFrag.querySelector("[card-type]");
       const suit = cardFrag.querySelector("[card-suit]");
@@ -150,5 +151,17 @@ function linkImages() {
 // to get to an image's file name and then maybe I can link it that way
 
 }
+
+// DOM - adding reset button
+const button = document.createElement("button")
+button.id = "resetDeck"
+button.textContent = "Reset Deck"
+button.ariaLabel = "Reset all cards to default"
+selectFilter.after(button);
+const resetBtn = document.querySelector("#resetDeck")
+
+resetBtn.addEventListener("click", () => {
+  window.location.reload();
+});
 
 
