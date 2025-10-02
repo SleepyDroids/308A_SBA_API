@@ -1,5 +1,16 @@
-import { liveSearch, cardFilter, linkImages } from "./functions.js";
-import { cardSkeleton, body, cardsPanel, searchBar, select, label, selectFilter, optionsData,  button, resetBtn } from "./dom.js";
+import { liveSearch, cardFilter } from "./functions.js";
+import {
+  cardSkeleton,
+  body,
+  cardsPanel,
+  searchBar,
+  select,
+  label,
+  selectFilter,
+  optionsData,
+  button,
+  resetBtn,
+} from "./dom.js";
 
 // 308A SBA
 
@@ -31,7 +42,7 @@ async function initialPanel() {
     deck = data.cards;
     // console.log(data);
     // for each card, do the following (78 cards total - indexed from 0 - 77)
-    
+
     deck.forEach((card, _index) => {
       // setting up template/document fragment cloning for cards
       // grab everything inside the template (content) and clone it
@@ -44,13 +55,19 @@ async function initialPanel() {
       const upright = cardFrag.querySelector("[card-upright]");
       const reverse = cardFrag.querySelector("[card-reversed]");
       const desc = cardFrag.querySelector("[card-desc]");
+      const newImgSrc = `./card-img/${card.name}.jpg`;
       cardName.textContent = card.name;
+      cardImg.src = newImgSrc;
+      cardImg.alt = card.name;
       type.textContent += card.type;
       upright.textContent += card.meaning_up;
       reverse.textContent += card.meaning_rev;
       desc.textContent += card.desc;
 
-      
+      // ----------------
+
+      //-----------------
+
       // major arcana cards don't have a suit so applying logic to account for that
       card.suit === undefined ? suit.remove() : (suit.textContent += card.suit);
       cardsPanel.append(cardFrag);
@@ -83,7 +100,7 @@ resetBtn.addEventListener("click", () => {
   window.location.reload();
 });
 
-const cardImg = document.getElementsByTagName("img")
-console.log(cardImg)
-const imgArray = [...cardImg]
-console.log(imgArray)
+// const cardImg = document.getElementsByTagName("img");
+// console.log(cardImg);
+// const imgArray = [...cardImg];
+// console.log(imgArray);

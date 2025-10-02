@@ -1,4 +1,4 @@
-export { liveSearch, cardFilter, linkImages };
+export { liveSearch, cardFilter };
 
 // Live search functionality for the main deck page
 function liveSearch() {
@@ -44,14 +44,3 @@ function cardFilter() {
   }
 } // end of cardFilter() function
 
-// separate function here to link images I've downloaded to each card's src accordingly
-function linkImages() {
-  const allCards = document.getElementsByClassName("card");
-
-  for (let card of allCards) {
-    const newImgSrc = `./card-img/${card.name}.jpg`;
-    const cardImg = document.querySelector("[card-img]");
-    //   if (card.name === )
-    // }
-  }
-}
