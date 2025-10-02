@@ -33,7 +33,7 @@ function cardFilter() {
       ? typeElement.textContent.toLowerCase()
       : "";
 
-    // similar logic to the live search
+      // similar logic to the live search
     if (userPick === "major") {
       card.style.display = typeActualText.includes("major") ? "block" : "none";
     } else if (userPick === "minor") {
@@ -45,7 +45,6 @@ function cardFilter() {
 } // end of cardFilter() function
 
 // separate function here to link images I've downloaded to each card's src accordingly
-
 function linkImages() {
   // can link cards by their name to the appropriate image
   // alternatively each card has a unique value in the API so if I name the images that way

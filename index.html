@@ -6,26 +6,20 @@
     <link rel="stylesheet" href="./src/style.css" />
     <script src="./src/index.js" type="module" async></script>
     <title>308A SBA - APIs and Data Manipulation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <label for="card-filter"></label>
     <div id="cards-panel"></div>
-
-    <!-- 
-    General Card Structure 
-    Image of specific tarot card
-    Card Name
-    Type
-    Suit - need to adjust if there is no suit available (if statement?)
-    Meaning Upright Position
-    Meaning Reversed Position 
-    Card Description
-    -->
-
     <template card-skeleton>
       <div class="card">
         <h3 card-title></h3>
-        <img src="./card-img/Death.jpg" alt="" card-img>
+        <img src="./card-img/Death.jpg" alt="" card-img />
         <ul>
           <li card-type><b>Type:</b>&nbsp;</li>
           <li card-suit><b>Suit:</b>&nbsp;</li>
@@ -35,5 +29,8 @@
         </ul>
       </div>
     </template>
+    <footer id="footer">
+      <p><a href="https://github.com/SleepyDroids" target="_blank">@SleepyDroids</a></p>
+    </footer>
   </body>
 </html>

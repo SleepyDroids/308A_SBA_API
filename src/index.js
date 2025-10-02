@@ -1,16 +1,5 @@
 import { liveSearch, cardFilter, linkImages } from "./functions.js";
-import {
-  cardSkeleton,
-  body,
-  cardsPanel,
-  searchBar,
-  select,
-  label,
-  selectFilter,
-  optionsData,
-  button,
-  resetBtn,
-} from "./dom.js";
+import { cardSkeleton, body, cardsPanel, searchBar, select, label, selectFilter, optionsData,  button, resetBtn } from "./dom.js";
 
 // 308A SBA
 
@@ -19,13 +8,6 @@ let deck; // initializing
 let hasSuit = false;
 let isMajor = false;
 let isMinor = false;
-
-// DOM
-searchBar.id = "card-search";
-searchBar.name = "cardSearch";
-searchBar.type = "text";
-searchBar.placeholder = "Search cards....";
-body.prepend(searchBar);
 
 // Data Retrieval
 // baseURL provided by the docs
