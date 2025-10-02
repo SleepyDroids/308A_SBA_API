@@ -52,4 +52,5 @@ function linkImages() {
   // trying to figure out how to do this without having 78 if statements to account for each card
   // according to stackoverflow I need to use .split() method
   // to get to an image's file name and then maybe I can link it that way
+  // if card name = image file name since I downloaded them according to their file name
 }

@@ -48,10 +48,10 @@ const optionsData = [
   { value: "#", text: "Filter cards by type" },
   { value: "major", text: "Major Arcana", id: "major" },
   { value: "minor", text: "Minor Arcana", id: "minor" },
-//   { value: "wands", text: "Wands (Suit)", id: "wands" },
-//   { value: "cups", text: "Cups (Suit)", id: "cups" },
-//   { value: "swords", text: "Swords (Suit)", id: "swords" },
-//   { value: "pentacles", text: "Pentacles (Suit)", id: "pentacles" },
+  { value: "wands", text: "Wands (Suit)", id: "wands" },
+  { value: "cups", text: "Cups (Suit)", id: "cups" },
+  { value: "swords", text: "Swords (Suit)", id: "swords" },
+  { value: "pentacles", text: "Pentacles (Suit)", id: "pentacles" },
 ]; // end of optionsData array of objects
 
 // reset button
