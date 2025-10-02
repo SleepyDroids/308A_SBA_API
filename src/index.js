@@ -30,8 +30,8 @@ async function initialPanel() {
     // deck targets the array inside my data so I can loop through it more easily
     deck = data.cards;
     // console.log(data);
-    // linkImages();
     // for each card, do the following (78 cards total - indexed from 0 - 77)
+    
     deck.forEach((card, _index) => {
       // setting up template/document fragment cloning for cards
       // grab everything inside the template (content) and clone it
@@ -49,10 +49,14 @@ async function initialPanel() {
       upright.textContent += card.meaning_up;
       reverse.textContent += card.meaning_rev;
       desc.textContent += card.desc;
+
+      
       // major arcana cards don't have a suit so applying logic to account for that
       card.suit === undefined ? suit.remove() : (suit.textContent += card.suit);
       cardsPanel.append(cardFrag);
     }); // end of forEach loop
+
+    // liveSearch();
   } catch (error) {
     console.error(error.message);
   }
@@ -78,3 +82,8 @@ selectFilter.addEventListener("change", cardFilter);
 resetBtn.addEventListener("click", () => {
   window.location.reload();
 });
+
+const cardImg = document.getElementsByTagName("img")
+console.log(cardImg)
+const imgArray = [...cardImg]
+console.log(imgArray)

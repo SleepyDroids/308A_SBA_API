@@ -33,7 +33,7 @@ function cardFilter() {
       ? typeElement.textContent.toLowerCase()
       : "";
 
-      // similar logic to the live search
+    // similar logic to the live search
     if (userPick === "major") {
       card.style.display = typeActualText.includes("major") ? "block" : "none";
     } else if (userPick === "minor") {
@@ -46,11 +46,12 @@ function cardFilter() {
 
 // separate function here to link images I've downloaded to each card's src accordingly
 function linkImages() {
-  // can link cards by their name to the appropriate image
-  // alternatively each card has a unique value in the API so if I name the images that way
-  // that could work too
-  // trying to figure out how to do this without having 78 if statements to account for each card
-  // according to stackoverflow I need to use .split() method
-  // to get to an image's file name and then maybe I can link it that way
-  // if card name = image file name since I downloaded them according to their file name
+  const allCards = document.getElementsByClassName("card");
+
+  for (let card of allCards) {
+    const newImgSrc = `./card-img/${card.name}.jpg`;
+    const cardImg = document.querySelector("[card-img]");
+    //   if (card.name === )
+    // }
+  }
 }
