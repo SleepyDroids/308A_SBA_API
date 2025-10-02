@@ -5,9 +5,6 @@ import { cardSkeleton, body, cardsPanel, searchBar, select, label, selectFilter,
 
 // Other Variables
 let deck; // initializing
-let hasSuit = false;
-let isMajor = false;
-let isMinor = false;
 
 // Data Retrieval
 // baseURL provided by the docs
