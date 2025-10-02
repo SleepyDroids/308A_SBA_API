@@ -26,21 +26,21 @@ searchBar.id = "card-search";
 searchBar.name = "cardSearch";
 searchBar.type = "text";
 searchBar.placeholder = "Search cards....";
-searchBar.classList.add("controls")
+searchBar.classList.add("controls");
 body.prepend(searchBar);
 
-const header = document.createElement("header")
-header.id = "header"
+const header = document.createElement("header");
+header.id = "header";
 body.prepend(header);
 header.appendChild(document.createElement("h1"));
-header.firstChild.id = "title"
-header.firstChild.textContent = "Tarot Explorer"
+header.firstChild.id = "title";
+header.firstChild.textContent = "Tarot Explorer";
 
 // select object and options
 const select = document.createElement("select");
 select.id = "card-filter";
 select.name = "filter-cards";
-select.classList.add("controls")
+select.classList.add("controls");
 const label = document.querySelector("label");
 label.after(select);
 const selectFilter = document.querySelector("#card-filter");
@@ -59,9 +59,8 @@ const button = document.createElement("button");
 button.id = "resetDeck";
 button.textContent = "Reset Deck";
 button.ariaLabel = "Reset all cards to default";
-button.classList.add("controls")
+button.classList.add("controls");
 selectFilter.after(button);
 const resetBtn = document.querySelector("#resetDeck");
 
-// creating a header for the page 
-
+// creating a header for the page

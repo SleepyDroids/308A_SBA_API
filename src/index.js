@@ -63,11 +63,6 @@ async function initialPanel() {
       upright.textContent += card.meaning_up;
       reverse.textContent += card.meaning_rev;
       desc.textContent += card.desc;
-
-      // ----------------
-
-      //-----------------
-
       // major arcana cards don't have a suit so applying logic to account for that
       card.suit === undefined ? suit.remove() : (suit.textContent += card.suit);
       cardsPanel.append(cardFrag);

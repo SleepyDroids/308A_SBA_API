@@ -43,4 +43,3 @@ function cardFilter() {
     }
   }
 } // end of cardFilter() function
-
